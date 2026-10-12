@@ -1,21 +1,19 @@
-def menara_hanoi(n, tiang_asal, tiang_tujuan, tiang_bantu):
-    # Base Case: jika tinggal 1 cakram, langsung pindahkan
+def menara_hanoi(n, asal, tujuan, bantuan):
+    # Base Case: jika hanya 1 piringan, pindahkan langsung
     if n == 1:
-        print(f"Pindahkan cakram 1 dari tiang {tiang_asal} ke tiang {tiang_tujuan}")
+        print(f"Pindahkan piringan 1 dari tiang {asal} ke tiang {tujuan}")
         return
 
-    # 1. Pindahkan (n - 1) cakram dari asal ke bantu
-    menara_hanoi(n - 1, tiang_asal, tiang_bantu, tiang_tujuan)
+    # Langkah 1: Pindahkan n - 1 piringan dari asal ke tiang bantuan
+    menara_hanoi(n - 1, asal, bantuan, tujuan)
 
-    # 2. Pindahkan cakram terbesar (ke-n) dari asal ke tujuan
-    print(f"Pindahkan cakram {n} dari tiang {tiang_asal} ke tiang {tiang_tujuan}")
+    # Langkah 2: Pindahkan piringan ke-n (terbesar) dari asal ke tiang tujuan
+    print(f"Pindahkan piringan {n} dari tiang {asal} ke tiang {tujuan}")
 
-    # 3. Pindahkan (n - 1) cakram dari bantu ke tujuan
-    menara_hanoi(n - 1, tiang_bantu, tiang_tujuan, tiang_asal)
+    # Langkah 3: Pindahkan n - 1 piringan dari tiang bantuan ke tiang tujuan
+    menara_hanoi(n - 1, bantuan, tujuan, asal)
 
 
-if __name__ == "__main__":
-    jumlah_cakram = 3
-    print(f"Langkah-langkah menyelesaikan Menara Hanoi untuk {jumlah_cakram} cakram:")
-    print("-" * 55)
-    menara_hanoi(jumlah_cakram, 'A', 'C', 'B')
+# Eksekusi untuk 3 piringan
+jumlah_piringan = 3
+menara_hanoi(jumlah_piringan, "A", "C", "B")
